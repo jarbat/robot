@@ -45,7 +45,7 @@ namespace Practica_Robot
             {
                 move(image);
                 sitoca(image);
-                
+                robot.CanviRobot(image);
             }
             
             tb_nIntents.Text = "Numero d'intents: " + count;
@@ -67,7 +67,7 @@ namespace Practica_Robot
         private void btn_Incia_Click(object sender, RoutedEventArgs e)
         {
             timer.Start();
-         
+        
             Random r = new Random();
             foreach (Image image in robot.Robots)
             {
@@ -75,12 +75,13 @@ namespace Practica_Robot
                  Canvas.SetLeft(image, (double)r.Next(robot.Llargadarob, robot.WIDTH - (robot.Ampladarob+1)));
                
                 canvas.Children.Add(image);
+               
             }
            
             Canvas.SetTop(robot.Tresor, (double)r.Next(robot.Ampladarob, robot.HEIGHT - (robot.Ampladarob + 1)));
             Canvas.SetLeft(robot.Tresor, (double)r.Next(robot.Llargadarob, robot.WIDTH - (robot.Ampladarob + 1)));
             canvas.Children.Add(robot.Tresor);
-
+            
         }
         private void move(Image sender)
         {
@@ -96,7 +97,7 @@ namespace Practica_Robot
                 if (adalt <=  robot.Llargadarob)
                 {
                     setDir();
-                  
+                    robot.CanviRobot(sender);
                 }
             }
 
@@ -107,7 +108,7 @@ namespace Practica_Robot
                 if (adalt >= (robot.HEIGHT -(robot.Llargadarob * 2)))
                 {
                     setDir();
-
+                    robot.CanviRobot(sender);
                 }
 
             }
@@ -118,7 +119,7 @@ namespace Practica_Robot
                 if (esquerra <= robot.Ampladarob)
                 {
                     setDir();
-
+                    robot.CanviRobot(sender);
                 }
             }
             else if (robot.Direccio == DireccioRobot.Oest)
@@ -128,7 +129,7 @@ namespace Practica_Robot
                 if (esquerra >= (robot.WIDTH - (robot.Ampladarob*2)))
                 {
                     setDir();
-
+                    robot.CanviRobot(sender);
                 }
 
             }
@@ -157,6 +158,9 @@ namespace Practica_Robot
             {
                 robot.Direccio = DireccioRobot.Oest;
             }
+           
         }
+
+       
     }
 }

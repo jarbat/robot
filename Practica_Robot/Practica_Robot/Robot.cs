@@ -119,10 +119,51 @@ namespace Practica_Robot
             tresor.Height = llargadarob;
             tresor.Source = bitmapImage;
         }
+
+        public void CanviRobot(Image image)
+        {
+            BitmapImage bitmapImage;
+            if (Direccio == DireccioRobot.Nort)
+            {
+                bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri("/imatges/robo_amunt.png", UriKind.Relative);
+                bitmapImage.EndInit();
+                image.Source = bitmapImage;
+
+            }
+            else if (Direccio == DireccioRobot.Sud)
+            {
+                bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri("/imatges/robo_aball.png", UriKind.Relative);
+                bitmapImage.EndInit();
+                image.Source = bitmapImage;
+
+            }
+           else if (Direccio == DireccioRobot.Est)
+            {
+                bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri("/imatges/robo_esquerra.png", UriKind.Relative);
+                bitmapImage.EndInit();
+                image.Source = bitmapImage;
+
+            }
+          else  if (Direccio == DireccioRobot.Oest)
+            {
+                bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri("/imatges/robo_dreta.png", UriKind.Relative);
+                bitmapImage.EndInit();
+                image.Source = bitmapImage;
+
+            }
+        }
     }
+    
 
-
-        public enum DireccioRobot
+    public enum DireccioRobot
         {
             Sud,
             Nort, Est, Oest
